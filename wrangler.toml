@@ -1,0 +1,6 @@
+name = "voice-react"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-01-01"
+
+[env.production]
+routes = [{ pattern = "voice-react.pages.dev", zone_name = "pages.dev" }]
