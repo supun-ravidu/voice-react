@@ -6,6 +6,7 @@ import LiveClasses from './components/LiveClasses';
 import FreeLiveClasses from './components/FreeLiveClasses';
 import UserLogin from './components/UserLogin';
 import UserDashboard from './components/UserDashboard';
+import UserRecordings from './components/UserRecordings';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 
@@ -50,6 +51,13 @@ function App() {
     } else if (page === 'free-classes') {
       // Free classes are public - no login required
       setCurrentPage('free-classes');
+    } else if (page === 'recordings') {
+      // Recordings require login
+      if (isUserLoggedIn) {
+        setCurrentPage('user-recordings');
+      } else {
+        setCurrentPage('user-login');
+      }
     } else if (page === 'admin') {
       setCurrentPage('admin');
     } else if (page === 'home') {
@@ -77,6 +85,16 @@ function App() {
 
   if (currentPage === 'user-dashboard' && isUserLoggedIn) {
     return <UserDashboard user={currentUser} onLogout={handleUserLogout} />;
+  }
+
+  if (currentPage === 'user-recordings' && isUserLoggedIn) {
+    return (
+      <>
+        <Navbar onNavigate={handleNavigate} isUserLoggedIn={isUserLoggedIn} userName={currentUser?.username} />
+        <UserRecordings user={currentUser} />
+        <Footer />
+      </>
+    );
   }
 
   // Public live classes (requires login)

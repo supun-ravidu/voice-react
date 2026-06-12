@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Courses", href: "#courses", icon: "📚" },
   { label: "Live Classes", href: "/live-classes", icon: "🎥", premium: true },
   { label: "Free Classes", href: "/free-classes", icon: "✨", free: true },
+  { label: "Recordings", href: "/recordings", icon: "🎙️", premium: true },
 ];
 
 export default function Navbar({ onNavigate, isUserLoggedIn = false, userName = "" }) {
@@ -29,8 +30,9 @@ export default function Navbar({ onNavigate, isUserLoggedIn = false, userName = 
       onNavigate('live-classes');
     } else if (href === "/free-classes") {
       onNavigate('free-classes');
+    } else if (href === "/recordings") {
+      onNavigate('recordings');
     } else if (href === "#") {
-      // Scroll to top of page when Home is clicked
       window.scrollTo({ top: 0, behavior: "smooth" });
       onNavigate('home');
     } else if (href.startsWith("#")) {
@@ -131,7 +133,6 @@ export default function Navbar({ onNavigate, isUserLoggedIn = false, userName = 
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex items-center gap-3"
               >
-                {/* User Avatar */}
                 <div className="group relative">
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 cursor-pointer hover:scale-105 transition-all duration-300">
                     <div className="relative">
@@ -145,8 +146,6 @@ export default function Navbar({ onNavigate, isUserLoggedIn = false, userName = 
                     <span className="text-sm font-medium text-green-400">{userName}</span>
                   </div>
                 </div>
-
-                {/* Logout Button */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -163,7 +162,6 @@ export default function Navbar({ onNavigate, isUserLoggedIn = false, userName = 
               </motion.div>
             ) : (
               <>
-                {/* Student Login Button */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -177,8 +175,6 @@ export default function Navbar({ onNavigate, isUserLoggedIn = false, userName = 
                   <div className="absolute inset-0 bg-green-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute inset-0 border border-green-500/50 rounded-full"></div>
                 </motion.button>
-
-                {/* Admin Login Button */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
