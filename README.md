@@ -11,7 +11,7 @@
 
 > **A modern, all-in-one learning platform for voice training** – featuring AI feedback, live classes, course management, and full admin control.
 
-🔗 **Live Preview:** [https://a08500b2.voice-react.pages.dev](https://a08500b2.voice-react.pages.dev)
+🔗 **Live Preview:** [[https://a08500b2.voice-react.pages.dev](https://7a700c50.voiceweb01.pages.dev/)]([https://a08500b2.voice-react.pages.dev](https://7a700c50.voiceweb01.pages.dev/))
 
 ---
 
